@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Mipsterz"
+project_name: "mipsterz"
+publication:  "Totally Stockholm #36"
+publication_link: "https://www.totallystockholm.se/mipsterz-mixing-fashion-faith/"
+date: 2015-02-25
+description_first_letter: "B"
+description: "ack in 2017, the term mipster exploded after a hip video shared by a gang of Muslim girls in NYC who coined the term started circulating on the Internet. Mixing fashion with faith, the hijab-wearing hipsters wanted to break the stereotype sometimes associated with the garment. This piece discusses the movement with a few Stockholm mipsterz."
+flipbook_images: ["cover_01.png", "mipsters_01.png", "mipsters_02.png", "mipsters_03.png", "mipsters_04.png", "mipsters_05.png"]
+---

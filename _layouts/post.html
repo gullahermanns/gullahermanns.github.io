@@ -1,0 +1,92 @@
+---
+layout: default
+---
+<article class="post">
+  <header>
+    <h1 class="postTitle">{{ page.title }}</h1>
+    <p class="meta" style="float: unset;"><a href="{{ page.publication_link }}" target="_blank">{{ page.publication }}</a> - {{ page.date | date: '%B %d, %Y' }}</p>
+  </header>
+
+  <!--{{ content }}-->
+
+  <p class="intro"><span class="dropcap">{{ page.description_first_letter }}</span>{{ page.description }}</p>
+
+  {%- if page.flipbook_images -%}
+
+  <figcaption class="flipbook">Click corners to navigate.<a href="{{ page.publication_link }}" target="_blank">Higher resolution available here.</a></figcaption>
+
+    <div id="flipbook" class="flipbook">
+
+      {% for image in page.flipbook_images %}
+
+        {% assign mod = forloop.index | modulo: 2 %}
+
+        {% if mod == 0 %}
+            {% assign side = "flipbook__page--left" %}
+        {% else %}
+            {% assign side = "flipbook__page--right" %}
+        {% endif %}
+
+        {% if forloop.last and mod == 0 %}
+
+          {% assign last = "flipbook__page--last" %}
+
+        {% else %}
+
+          {% assign last = "" %}
+
+        {% endif %}
+
+        {% if forloop.first %}
+
+          <div>
+            <img class="flipbook__page" src="{{ '/assets/articles/' | append: page.project_name | append: '/' | append: image | relative_url }}" alt="{{page.publication}} front cover" />
+          </div>
+
+        {% else %}
+
+          <div>
+            <img class="flipbook__page {{side}} {{last}}" src="{{ '/assets/articles/' | append: page.project_name | append: '/' | append: image | relative_url }}" alt="{{ page.title }} - page {{ forloop.index }}">
+          </div>
+
+        {% endif %}
+
+      {% endfor %}
+
+    </div>
+
+  {%- endif -%}
+
+  {%- if page.project_name -%}
+  <div class="pdf_object">
+
+    <object
+      data="{{ '/assets/articles/' | append: page.project_name | append: '/' | append: page.project_name | append: '.pdf' | relative_url }}"
+      width="1000"
+      height="800"
+      type="application/pdf"
+    >
+    </object>
+
+  </div>
+
+  {%- endif -%}
+
+  <!-- POST NAVIGATION -->
+  <footer class="postNav clearfix">
+    {%- if page.previous.url -%}
+      <a class="prev{% if page.previous.image %} image{% endif %}" href="{{ page.previous.url | relative_url }}"><span>&laquo;&nbsp;{{ page.previous.title }}</span>
+      {%- if page.previous.image -%}
+        <img src="{{ '/assets/img/' |  append: page.previous.image | relative_url }}" alt="">
+      {%- endif -%}
+    </a>
+    {%- endif -%}
+    {%- if page.next.url -%}
+      <a class="next{% if page.next.image %} image{% endif %}" href="{{ page.next.url | relative_url }}"><span>{{ page.next.title }}&nbsp;&raquo;</span>
+      {%- if page.next.image -%}
+        <img src="{{ '/assets/img/' | append: page.next.image | relative_url }}" alt="">
+      {%- endif -%}
+      </a>
+    {%- endif -%}
+  </footer>
+</article>
