@@ -1,7 +1,7 @@
 title: Gulla Hermannsdottir
 description: Portfolio
 
-url: https://gullahermanns.github.io
+url: https://gullahermannsdottir.com
 # Only necessary when hosting your site in a sub-directory. Project sites hosted on GitHub Pages are the common use-case of this variable.
 baseurl: # Ex: /project-page
 paginate_path: "blog/page:num/"
