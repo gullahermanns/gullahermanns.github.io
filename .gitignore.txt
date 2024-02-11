@@ -1,5 +1,0 @@
-.DS_Store
-Gemfile.lock
-package-lock.json
-.sass-cache
-_site
